@@ -11,7 +11,7 @@ export default function Navbar() {
   if (!mounted) {
     return null;
   }
-  if (!localStorage) {
+  if (typeof localStorage !== "undefined") {
     if (resolvedTheme === "dark") {
       localStorage.setItem("theme", "dark");
     } else {
