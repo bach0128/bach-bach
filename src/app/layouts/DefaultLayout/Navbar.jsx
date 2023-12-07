@@ -1,4 +1,5 @@
 "use client";
+
 import { Button } from "@nextui-org/react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
@@ -10,11 +11,14 @@ export default function Navbar() {
   if (!mounted) {
     return null;
   }
-  if (resolvedTheme === "dark") {
-    localStorage.setItem("theme", "dark");
-  } else {
-    localStorage.setItem("theme", "light");
+  if (!localStorage) {
+    if (resolvedTheme === "dark") {
+      localStorage.setItem("theme", "dark");
+    } else {
+      localStorage.setItem("theme", "light");
+    }
   }
+
   return (
     <div className="px-20 py-5 bg-neutral-700 fixed top-0 left-0 right-0 w-full flex justify-evenly z-10">
       <nav className="text-transform: capitalize text-white">

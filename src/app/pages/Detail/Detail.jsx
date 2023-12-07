@@ -39,10 +39,12 @@ export default function Detail() {
             >
               <h3 className="text-yellow-500">{h3}</h3>
               <p>{p}</p>
-              <Image
+              <img
                 className="mt-10 rounded-md hover:scale-y-110 object-cover"
                 src={`https://api-pages.vercel.app/${src}`}
                 alt="lol"
+                // width={100}
+                // height={100}
               />
             </div>
           ))}
