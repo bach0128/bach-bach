@@ -26,7 +26,7 @@ export default function Navbar() {
           <span className="text-orange-500">S</span>TRAVEL
         </a>
         <a
-          className="hover:text-orange-400 mx-2 tracking-tighter"
+          className="hover:text-orange-400 mx-2 tracking-tighter cursor-pointer"
           path="/"
           onClick={() => navigate("/")}
         >
