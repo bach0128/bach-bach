@@ -1,6 +1,7 @@
 "use client";
 
 import { fetchPages } from "@/redux/middlewares/pageMiddlewares";
+import Image from "next/image";
 import { Fragment, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -35,7 +36,7 @@ export default function Detail() {
             <div className="m-2 rounded-xl border border-none bg-neutral-400 p-2 flex flex-col items-center justify-center">
               <h3 className="text-yellow-500">{h3}</h3>
               <p>{p}</p>
-              <img
+              <Image
                 className="mt-10 rounded-md hover:scale-y-110 object-cover"
                 src={`https://api-pages.vercel.app/${src}`}
                 alt="lol"
