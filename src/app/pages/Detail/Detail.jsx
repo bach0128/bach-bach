@@ -16,13 +16,13 @@ export default function Detail() {
 
   useEffect(() => {
     dispatch(fetchPages(1));
-  }, []);
+  }, [dispatch]);
 
   if (status === "pending") {
     return <h3>Loading...</h3>;
   }
   return (
-    <Fragment key={2}>
+    <Fragment key={3}>
       <section className="detail mt-20" id="/">
         <div className="detail-home">
           <h1 className="text-yellow-500">{home?.name}</h1>
@@ -32,8 +32,11 @@ export default function Detail() {
       </section>
       <section id="about">
         <div className="grid grid-cols-4">
-          {destinationBox?.map(({ h3, p, src }) => (
-            <div className="m-2 rounded-xl border border-none bg-neutral-400 p-2 flex flex-col items-center justify-center">
+          {destinationBox?.map(({ h3, p, src }, index) => (
+            <div
+              key={index}
+              className="m-2 rounded-xl border border-none bg-neutral-400 p-2 flex flex-col items-center justify-center"
+            >
               <h3 className="text-yellow-500">{h3}</h3>
               <p>{p}</p>
               <Image
