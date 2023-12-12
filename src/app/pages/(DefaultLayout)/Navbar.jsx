@@ -10,7 +10,7 @@ export default function Navbar() {
   useEffect(() => setMounted(true), []);
   useEffect(() => {
     if (!mounted) {
-      return null;
+      return;
     }
     if (typeof localStorage !== "undefined") {
       if (resolvedTheme === "dark") {

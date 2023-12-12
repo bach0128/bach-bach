@@ -15,7 +15,7 @@ export default function Navbar() {
   useEffect(() => setMounted(true), []);
   useEffect(() => {
     if (!mounted) {
-      return null;
+      return;
     }
     if (resolvedTheme === "dark") {
       localStorage.setItem("theme", "dark");
