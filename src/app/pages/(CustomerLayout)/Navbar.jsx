@@ -13,14 +13,17 @@ export default function Navbar() {
   const [navigateBook, setNavigate] = useState(false);
 
   useEffect(() => setMounted(true), []);
-  if (!mounted) {
-    return null;
-  }
-  if (resolvedTheme === "dark") {
-    localStorage.setItem("theme", "dark");
-  } else {
-    localStorage.setItem("theme", "light");
-  }
+  useEffect(() => {
+    if (!mounted) {
+      return null;
+    }
+    if (resolvedTheme === "dark") {
+      localStorage.setItem("theme", "dark");
+    } else {
+      localStorage.setItem("theme", "light");
+    }
+  }, []);
+
   return (
     <div className="px-20 py-5 bg-neutral-700 fixed top-0 left-0 right-0 w-full flex justify-evenly z-10">
       <nav className="text-transform: capitalize text-white">
