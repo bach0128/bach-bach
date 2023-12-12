@@ -1,7 +1,7 @@
 "use client";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 export default function Package() {
-  const navigate = useNavigate();
+  const route = useRouter();
   return (
     <section
       id="package"
@@ -12,7 +12,7 @@ export default function Package() {
         Xúc tour đi Egypt để trải nhiệm cái nóng của sa mạc ngay và luôn{" "}
       </p>
       <button
-        onClick={() => navigate("/detail")}
+        onClick={() => route.push("/pages/detail")}
         className="p-3 px-6 text-white border border-transparent bg-yellow-500 hover:bg-yellow-300 hover:text-yellow-700"
       >
         Đặt ngay

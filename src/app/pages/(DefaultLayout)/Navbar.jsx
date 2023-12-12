@@ -1,48 +1,41 @@
 "use client";
+
 import { Button } from "@nextui-org/react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
-  const navigate = useNavigate();
-  const { resolvedTheme, setTheme } = useTheme(localStorage.getItem("theme"));
+  const { resolvedTheme, setTheme } = useTheme("light");
   const [mounted, setMounted] = useState(false);
-  const [navigateBook, setNavigate] = useState(false);
-
   useEffect(() => setMounted(true), []);
   if (!mounted) {
     return null;
   }
-  if (resolvedTheme === "dark") {
-    localStorage.setItem("theme", "dark");
-  } else {
-    localStorage.setItem("theme", "light");
+  if (typeof localStorage !== "undefined") {
+    if (resolvedTheme === "dark") {
+      localStorage.setItem("theme", "dark");
+    } else {
+      localStorage.setItem("theme", "light");
+    }
   }
+
   return (
     <div className="px-20 py-5 bg-neutral-700 fixed top-0 left-0 right-0 w-full flex justify-evenly z-10">
       <nav className="text-transform: capitalize text-white">
         <a href="#" className="text-2xl font-bold text-white mr-40">
           <span className="text-orange-500">S</span>TRAVEL
         </a>
-        <a
-          className="hover:text-orange-400 mx-2 tracking-tighter cursor-pointer"
-          path="/"
-          onClick={() => navigate("/")}
-        >
+        <a className="hover:text-orange-400 mx-2 tracking-tighter" href="#home">
           Trang Chủ
         </a>
-        <a
-          className="hover:text-orange-400 mx-2 tracking-tighter"
-          href="#about"
-        >
-          About
+        <a className="hover:text-orange-400 mx-2 tracking-tighter" href="#book">
+          Đặt lịch
         </a>
         <a
           className="hover:text-orange-400 mx-2 tracking-tighter"
           href="#package"
         >
-          Điểm đến
+          Ưu đãi
         </a>
         <a
           className="hover:text-orange-400 mx-2 tracking-tighter"
@@ -54,13 +47,19 @@ export default function Navbar() {
           className="hover:text-orange-400 mx-2 tracking-tighter"
           href="#galley"
         >
-          Ảnh
+          Thư viện
         </a>
         <a
           className="hover:text-orange-400 mx-2 tracking-tighter"
           href="#review"
         >
-          Blog
+          Đánh giá
+        </a>
+        <a
+          className="hover:text-orange-400 mx-2 tracking-tighter"
+          href="#contact"
+        >
+          Liên hệ
         </a>
       </nav>
       <div className="nav-btn w-40 flex items-center justify-center">
@@ -90,27 +89,29 @@ export default function Navbar() {
             </svg>
           )}
         </Button>
-        {!navigateBook ? (
-          <button
-            className="text-xl p-1 ml-2 border border-transparent rounded-xl bg-yellow-600 hover:text-yellow-500 hover:bg-neutral-600"
-            onClick={() => {
-              setNavigate(true);
-              navigate("/book");
-            }}
+        <span className="mx-2 cursor-pointer ">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="32"
+            width="20"
+            viewBox="0 0 512 512"
+            fill="#ffa500"
           >
-            Đặt ngay
-          </button>
-        ) : (
-          <button
-            className="text-xl p-1 ml-2 border border-transparent rounded-xl bg-yellow-600 hover:text-yellow-500 hover:bg-neutral-600"
-            onClick={() => {
-              setNavigate(false);
-              navigate("/detail");
-            }}
+            <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
+          </svg>
+        </span>
+
+        <span className="mx-2 cursor-pointer ">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="32"
+            width="20"
+            viewBox="0 0 448 512"
+            fill="#ffa500"
           >
-            Trở lại
-          </button>
-        )}
+            <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+          </svg>
+        </span>
       </div>
     </div>
   );

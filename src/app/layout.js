@@ -1,7 +1,6 @@
 import "./globals.css";
 import Providers from "@/redux/Providers";
-import Main from "./core/Main";
-import { ProvidersTheme } from "./providersTheme";
+import ProvidersTheme from "./providersTheme";
 
 // export const metadata = {
 //   title: "Create Next App",
@@ -13,10 +12,7 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <body className="font-mono">
         <Providers>
-          <ProvidersTheme>
-            {children}
-            <Main />
-          </ProvidersTheme>
+          <ProvidersTheme>{children}</ProvidersTheme>
         </Providers>
       </body>
     </html>

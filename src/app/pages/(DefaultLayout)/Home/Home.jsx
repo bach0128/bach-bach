@@ -1,11 +1,10 @@
 import Image from "next/image";
 import bannerJpg from "@/app/assets/image/banner2.jpg";
 import Book from "./Book";
-import { Fragment } from "react";
 import Package from "./Package";
 export default function Home() {
   return (
-    <Fragment key={1}>
+    <>
       <section className="home mt-16" id="home">
         <div className="content text-center absolute top-2/4 left-0 right-0">
           <h2 className="text-center text-yellow-400 font-extrabold text-3xl">
@@ -37,6 +36,6 @@ export default function Home() {
       </section>
       <Book />
       <Package />
-    </Fragment>
+    </>
   );
 }

@@ -2,6 +2,6 @@
 
 import { ThemeProvider } from "next-themes";
 
-export function ProvidersTheme({ children }) {
+export default function ProvidersTheme({ children }) {
   return <ThemeProvider attribute="class">{children}</ThemeProvider>;
 }
