@@ -97,7 +97,7 @@ export default function Navbar() {
             className="text-xl p-1 ml-2 border border-transparent rounded-xl bg-yellow-600 hover:text-yellow-500 hover:bg-neutral-600"
             onClick={() => {
               setNavigate(true);
-              route.push("/pages/bookTour");
+              // route.push("/pages/bookTour");
             }}
           >
             Đặt ngay

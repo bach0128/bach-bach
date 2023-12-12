@@ -18,21 +18,23 @@ export default function Home() {
             <a href="#package">Khám phá ngay</a>
           </button>
         </div>
-        <Image
-          loading="lazy"
-          src={bannerJpg}
-          alt="banner"
-          width={1800}
-          sizes="100vw"
-          quality={100}
-          style={{
-            objectFit: "contain",
-            overflow: "hidden",
-            maxWidth: "1800px",
-            position: "relative",
-            zIndex: "-1",
-          }}
-        />
+        <div className="object-cover w-full overflow-hidden">
+          <Image
+            // loading="lazy"
+            src={bannerJpg}
+            alt="banner"
+            width={1800}
+            sizes="100vw"
+            priority={true}
+            style={{
+              objectFit: "contain",
+              overflow: "hidden",
+              maxWidth: "1800px",
+              position: "relative",
+              zIndex: "-1",
+            }}
+          />
+        </div>
       </section>
       <Book />
       <Package />
