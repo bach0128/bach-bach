@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 
 export default function Navbar() {
   const route = useRouter();
-  const { resolvedTheme, setTheme } = useTheme(localStorage.getItem("theme"));
+  const { resolvedTheme, setTheme } = useTheme("light");
   const [mounted, setMounted] = useState(false);
   const [navigateBook, setNavigate] = useState(false);
 
